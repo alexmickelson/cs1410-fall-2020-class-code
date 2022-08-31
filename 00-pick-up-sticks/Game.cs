@@ -1,6 +1,6 @@
 class Game
 {
-  public readonly string CurrentPlayer;
+  public string CurrentPlayer = "player one";
   public int RemainingSticks = 10;
   public Game()
   {
@@ -9,6 +9,34 @@ class Game
 
   public string GetStatusAsString()
   {
-    return "";
+    return $"there are {RemainingSticks} sticks, it is {CurrentPlayer}'s turn";
+  }
+
+  internal bool ValidateUserInput(string? userInput)
+  {
+    return int.TryParse(userInput, out _);
+  }
+
+  public bool IsOver()
+  {
+    return RemainingSticks == 0;
+  }
+
+  public void CurrentPlayerPicksUpSticks(int stickCount)
+  {
+    RemainingSticks -= stickCount;
+    if(CurrentPlayer == "player one")
+    {
+      CurrentPlayer = "player two";
+    }
+    else 
+    {
+      CurrentPlayer = "player one";
+    }
+  }
+
+  public string GetEndResult()
+  {
+    return $"{CurrentPlayer} won!";
   }
 }
