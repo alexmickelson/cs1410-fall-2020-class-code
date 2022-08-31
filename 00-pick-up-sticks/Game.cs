@@ -19,24 +19,15 @@ class Game
 
   public bool IsOver()
   {
-    return RemainingSticks == 0;
+    return false;
   }
 
   public void CurrentPlayerPicksUpSticks(int stickCount)
   {
-    RemainingSticks -= stickCount;
-    if(CurrentPlayer == "player one")
-    {
-      CurrentPlayer = "player two";
-    }
-    else 
-    {
-      CurrentPlayer = "player one";
-    }
   }
 
   public string GetEndResult()
   {
-    return $"{CurrentPlayer} won!";
+    return "";
   }
 }
