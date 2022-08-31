@@ -1,10 +1,11 @@
 class Game
 {
-  public string CurrentPlayer = "player one";
+  public Player CurrentPlayer;
   public int RemainingSticks = 10;
   public Game()
   {
-    
+    CurrentPlayer = new Player("player one");
+    CurrentPlayer.name
   }
 
   public string GetStatusAsString()
