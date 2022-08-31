@@ -12,7 +12,7 @@ class Game
     return $"there are {RemainingSticks} sticks, it is {CurrentPlayer}'s turn";
   }
 
-  internal bool ValidateUserInput(string? userInput)
+  public bool ValidateUserInput(string? userInput)
   {
     return int.TryParse(userInput, out _);
   }
