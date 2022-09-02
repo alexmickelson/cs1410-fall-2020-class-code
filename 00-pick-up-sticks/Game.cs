@@ -5,7 +5,7 @@ class Game
   public Game()
   {
     CurrentPlayer = new Player("player one");
-    CurrentPlayer.name
+
   }
 
   public string GetStatusAsString()

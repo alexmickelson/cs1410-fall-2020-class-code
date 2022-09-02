@@ -2,7 +2,7 @@ using System.Diagnostics;
 
 class Player
 {
-  public string name = "no name";
+  public string Name = "no name";
   public int Id;
 
   public Player()
@@ -14,7 +14,7 @@ class Player
   }
   public Player(string name)
   {
-    this.name = name;
+    this.Name = name;
   }
 
   public string GetNameAsString()
