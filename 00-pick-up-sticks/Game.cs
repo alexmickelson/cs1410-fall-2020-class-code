@@ -5,7 +5,6 @@ class Game
   public Game()
   {
     CurrentPlayer = new Player("player one");
-
   }
 
   public string GetStatusAsString()
@@ -13,9 +12,21 @@ class Game
     return $"there are {RemainingSticks} sticks, it is {CurrentPlayer.Name}'s turn";
   }
 
-  public bool ValidateUserInput(string? userInput)
+  public int ParseUserInput(string? userInput)
   {
-    return int.TryParse(userInput, out _);
+    var isValidInput = int.TryParse(userInput, out _);
+    if (!isValidInput)
+      throw new Exception($"Invalid user input, cannot parse as int, input was: {userInput}");
+    var parsedNumber = int.Parse(userInput);
+
+    if (parsedNumber <= 0)
+      throw new Exception("Number has to be positive, non-zero");
+    if (parsedNumber > RemainingSticks)
+      throw new Exception("number has to be less than remaining sticks");
+    if (parsedNumber > 3)
+      throw new Exception("number has to be less than four");
+
+    return parsedNumber;
   }
 
   public bool IsOver()

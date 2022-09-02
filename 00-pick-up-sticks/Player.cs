@@ -14,6 +14,9 @@ class Player
   }
   public Player(string name)
   {
+    if(name == "" )
+      throw new Exception("Player Name cannot be empty");
+    
     this.Name = name;
   }
 
