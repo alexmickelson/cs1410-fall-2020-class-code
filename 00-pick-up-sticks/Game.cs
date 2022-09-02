@@ -10,7 +10,7 @@ class Game
 
   public string GetStatusAsString()
   {
-    return $"there are {RemainingSticks} sticks, it is {CurrentPlayer}'s turn";
+    return $"there are {RemainingSticks} sticks, it is {CurrentPlayer.Name}'s turn";
   }
 
   public bool ValidateUserInput(string? userInput)
