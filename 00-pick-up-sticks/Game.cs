@@ -1,3 +1,5 @@
+namespace PicksUpSticks;
+
 class Game
 {
   public Player CurrentPlayer;
@@ -36,7 +38,7 @@ class Game
 
   public void CurrentPlayerPicksUpSticks(int stickCount)
   {
-    
+
   }
 
   public string GetEndResult()

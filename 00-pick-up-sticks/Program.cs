@@ -1,4 +1,5 @@
-﻿
+﻿global using PicksUpSticks;
+
 var tester = new GameTests();
 tester.RunTests();
 
