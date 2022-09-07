@@ -20,9 +20,6 @@ class GameTests
     // System.Console.WriteLine(gameStatus);
     Debug.Assert(expectedStatus == gameStatus);
   }
-  public void TestPlayerPicksUpSticks()
-  {
-  }
   public void TestValidateValidUserInput()
   {
     var game = new Game();
@@ -49,6 +46,10 @@ class GameTests
   }
 
   public void TestGetEndResult()
+  {
+  }
+
+  public void TestPlayerPicksUpSticks()
   {
   }
 }
