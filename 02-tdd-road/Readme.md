@@ -13,5 +13,6 @@ Road:
 - Render the road visually (GetAsString)
 - CarArray
   - cars position
-- RoadWidth (lane count)
-- Length
+<!-- - RoadWidth (lane count)
+- Length -->
+- RoadGrid
