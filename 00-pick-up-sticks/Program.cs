@@ -29,7 +29,6 @@ while (!game.IsOver())
     }
   }
 
-
   game.CurrentPlayerPicksUpSticks(parsedUserInput);
 
   // while (!game.ValidateUserInput(userInput))
