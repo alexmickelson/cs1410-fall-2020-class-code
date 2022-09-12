@@ -34,7 +34,7 @@ public class RoadTests
   public void CanPutCarOnRoad()
   {
     var car = new Car();
-    car.SetId(0)
+    car.SetId(0);
     car.Icon = "🚗";
     car.Speed = 1;
     var road = new Road(1, 1);
