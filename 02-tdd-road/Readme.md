@@ -16,3 +16,18 @@ Road:
 <!-- - RoadWidth (lane count)
 - Length -->
 - RoadGrid
+
+# Object Oriented Principles
+
+1. encapsulation
+2. information hiding
+3. abstraction
+
+
+# roadGrid
+
+[
+  [ -1, -1 ],
+  [ -1, -1 ],
+  [ -1, -1 ],
+]
