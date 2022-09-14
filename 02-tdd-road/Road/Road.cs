@@ -1,12 +1,11 @@
+using System.Collections.Generic;
 public class Road
 {
   public List<Car> cars;
   public int[][] RoadGrid;
-  private int area;
   public Road(int width, int length)
   {
     cars = new List<Car>();
-    area = width * length;
     var row = new int[width];
 
     for (int i = 0; i < row.Length; i++)
@@ -21,9 +20,24 @@ public class Road
     }
   }
 
+  public Road CopyMyself()
+  {
+    return new Road(getMyWidth(), getMyLength());
+  }
+
+  private int getMyWidth()
+  {
+    return RoadGrid[0].Length;
+  }
+
+  private int getMyLength()
+  {
+    return RoadGrid.Length;
+  }
+
   public int GetArea()
   {
-    return area;
+    return getMyLength() * getMyWidth();
   }
 
   public string GetAsSring()
@@ -44,7 +58,12 @@ public class Road
         else
         {
           var car = getCar(carId);
-          rowOutput += $"{car.Icon}|";
+
+          var emojiArray = new string[] {
+            "🚙", "🚗", "🚒", "🚑", "🛻"
+          };
+          var carIndex = (int)car.Icon;
+          rowOutput += $"{emojiArray[carIndex]}|";
         }
       }
       rowOutput += "\n";
@@ -67,5 +86,14 @@ public class Road
         return car;
     }
     throw new Exception($"no car found with id {carId}");
+  }
+
+  public void ProcessTick()
+  {
+    // take each car and move 
+    // (according to speed) to its new position
+    // var newpositions = Array[]
+
+    var nextRoadGrid = new int[][] { };
   }
 }

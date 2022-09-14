@@ -18,6 +18,7 @@ public class RoadTests
 |  |  |
 ";
     Assert.AreEqual(expectedRoadString, road.GetAsSring());
+    // Debug.Assert(expectedRoadString == road.GetAsSring());
   }
 
   [Test]
@@ -30,12 +31,14 @@ public class RoadTests
 ";
     Assert.AreEqual(expectedRoadString, road.GetAsSring());
   }
+
   [Test]
   public void CanPutCarOnRoad()
   {
     var car = new Car();
     car.SetId(0);
-    car.Icon = "🚗";
+    // car.Icon = "🚗";
+    car.Icon = Car.CarIcon.RedCar;
     car.Speed = 1;
     var road = new Road(1, 1);
     road.AddCar(car, 0, 0);
@@ -43,6 +46,29 @@ public class RoadTests
     var expectedRoadString = @"
 |🚗|
 ";
+    Assert.AreEqual(expectedRoadString, road.GetAsSring());
+  }
+
+  [Test]
+  public void CarsMoveEachTick()
+  {
+    var car = new Car();
+    car.SetId(0);
+    car.Icon = Car.CarIcon.RedCar;
+    car.Speed = 1;
+    var road = new Road(1, 5);
+    road.AddCar(car, 0, 0);
+
+    // road.ProcessTick();
+
+    var expectedRoadString = @"
+|  |
+|🚗|
+|  |
+|  |
+|  |
+";
+
     Assert.AreEqual(expectedRoadString, road.GetAsSring());
   }
 }
