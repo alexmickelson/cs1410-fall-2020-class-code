@@ -40,11 +40,29 @@ public class RoadTests
     // car.Icon = "🚗";
     car.Icon = Car.CarIcon.RedCar;
     car.Speed = 1;
-    var road = new Road(1, 1);
+    var road = new Road(2, 2);
     road.AddCar(car, 0, 0);
 
     var expectedRoadString = @"
-|🚗|
+|🚗|  |
+|  |  |
+";
+    Assert.AreEqual(expectedRoadString, road.GetAsSring());
+  }
+  [Test]
+  public void CanPutCarOnRoadInADifferentSpot()
+  {
+    var car = new Car();
+    car.SetId(0);
+    // car.Icon = "🚗";
+    car.Icon = Car.CarIcon.RedCar;
+    car.Speed = 1;
+    var road = new Road(2, 2);
+    road.AddCar(car, 1, 0);
+
+    var expectedRoadString = @"
+|  |🚗|
+|  |  |
 ";
     Assert.AreEqual(expectedRoadString, road.GetAsSring());
   }
@@ -53,20 +71,17 @@ public class RoadTests
   public void CarsMoveEachTick()
   {
     var car = new Car();
-    car.SetId(0);
+    car.SetId(1);
     car.Icon = Car.CarIcon.RedCar;
     car.Speed = 1;
-    var road = new Road(1, 5);
-    road.AddCar(car, 0, 0);
+    var road = new Road(1, 2);
+    var (otherCarReference, roadRow) = road.AddCar(car, 0, 0);
 
-    // road.ProcessTick();
+    road.ProcessTick();
 
     var expectedRoadString = @"
 |  |
 |🚗|
-|  |
-|  |
-|  |
 ";
 
     Assert.AreEqual(expectedRoadString, road.GetAsSring());

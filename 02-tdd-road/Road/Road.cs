@@ -6,18 +6,30 @@ public class Road
   public Road(int width, int length)
   {
     cars = new List<Car>();
-    var row = new int[width];
+    RoadGrid = initializeEmtpyGrid(width, length);
+  }
 
-    for (int i = 0; i < row.Length; i++)
-    {
-      row[i] = -1;
-    }
-
-    RoadGrid = new int[length][];
+  private int[][] initializeEmtpyGrid(int width, int length)
+  {
+    var grid = new int[length][];
     for (int i = 0; i < length; i++)
     {
-      RoadGrid[i] = row;
+      var row = new int[width];
+      for (int j = 0; j < row.Length; j++)
+      {
+        row[j] = -1;
+      }
+      grid[i] = row;
     }
+    return grid;
+  }
+
+  public Road(int width, int length, Car car, string[] mystring) : this(width, length) 
+  {
+    mystring[1] = "hello";
+    car.SetId(2);
+    cars.Add(car);
+    width = 2;
   }
 
   public Road CopyMyself()
@@ -72,10 +84,12 @@ public class Road
     return output;
   }
 
-  public void AddCar(Car car, int x, int y)
+  public (Car, int[]) AddCar(Car car, int x, int y)
   {
     cars.Add(car);
-    RoadGrid[y][x] = car.GetId();
+    var carRow = RoadGrid[y];
+    carRow[x] = car.GetId();
+    return (car, carRow);
   }
 
   private Car getCar(int carId)
@@ -94,6 +108,15 @@ public class Road
     // (according to speed) to its new position
     // var newpositions = Array[]
 
-    var nextRoadGrid = new int[][] { };
+    var nextRoadGrid = initializeEmtpyGrid(getMyWidth(), getMyLength());
+
+    for (int i = 0; i < RoadGrid.Length; i++)
+    {
+      for (int j = 0; j < RoadGrid[i].Length; j++)
+      {
+        var car = getCar(RoadGrid[i][j]);
+        var carSpeed = car.Speed;
+      }
+    }
   }
 }
