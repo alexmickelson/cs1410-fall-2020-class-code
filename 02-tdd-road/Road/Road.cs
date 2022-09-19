@@ -2,11 +2,23 @@ using System.Collections.Generic;
 public class Road
 {
   public List<Car> cars;
-  public int[][] RoadGrid;
+  private int[][] RoadGrid;
   public Road(int width, int length)
   {
     cars = new List<Car>();
     RoadGrid = initializeEmtpyGrid(width, length);
+  }
+  public int[][] GetRoadGrid()
+  {
+    var duplicateGrid = initializeEmtpyGrid(getMyWidth(), getMyLength());
+    for (int i = 0; i < RoadGrid.Length; i++)
+    {
+      for (int j = 0; j < RoadGrid[i].Length; j++)
+      {
+        duplicateGrid[i][j] = RoadGrid[i][j];
+      }
+    }
+    return duplicateGrid;
   }
 
   private int[][] initializeEmtpyGrid(int width, int length)
@@ -24,7 +36,7 @@ public class Road
     return grid;
   }
 
-  public Road(int width, int length, Car car, string[] mystring) : this(width, length) 
+  public Road(int width, int length, Car car, string[] mystring) : this(width, length)
   {
     mystring[1] = "hello";
     car.SetId(2);
@@ -63,10 +75,10 @@ public class Road
 
       foreach (var carId in carRow)
       {
-        if(carId == -1)
+        if (carId == -1)
         {
           rowOutput += oneSpace;
-        } 
+        }
         else
         {
           var car = getCar(carId);
@@ -86,6 +98,14 @@ public class Road
 
   public (Car, int[]) AddCar(Car car, int x, int y)
   {
+    if (x >= getMyWidth())
+    {
+      throw new Exception($"Cannot add car: col {x} is larger than or equal to {getMyWidth()}");
+    }
+    if (y >= getMyLength())
+    {
+      throw new Exception($"Cannot add car: row {y} is larger than or equal to {getMyWidth()}");
+    }
     cars.Add(car);
     var carRow = RoadGrid[y];
     carRow[x] = car.GetId();
@@ -94,9 +114,9 @@ public class Road
 
   private Car getCar(int carId)
   {
-    foreach(var car in cars)
+    foreach (var car in cars)
     {
-      if(car.GetId() == carId)
+      if (car.GetId() == carId)
         return car;
     }
     throw new Exception($"no car found with id {carId}");
@@ -104,19 +124,25 @@ public class Road
 
   public void ProcessTick()
   {
-    // take each car and move 
-    // (according to speed) to its new position
-    // var newpositions = Array[]
-
     var nextRoadGrid = initializeEmtpyGrid(getMyWidth(), getMyLength());
-
-    for (int i = 0; i < RoadGrid.Length; i++)
+    for (int row = 0; row < RoadGrid.Length; row++)
     {
-      for (int j = 0; j < RoadGrid[i].Length; j++)
+      for (int col = 0; col < RoadGrid[row].Length; col++)
       {
-        var car = getCar(RoadGrid[i][j]);
-        var carSpeed = car.Speed;
+        var carId = RoadGrid[row][col];
+        if (carId != -1)
+        {
+          var car = getCar(carId);
+          var carSpeed = car.Speed;
+          var nextRow = carSpeed + row;
+
+          if(nextRow < nextRoadGrid.Length)
+          {
+            nextRoadGrid[nextRow][col] = carId;
+          }
+        }
       }
     }
+    RoadGrid = nextRoadGrid;
   }
 }

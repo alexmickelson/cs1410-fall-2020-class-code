@@ -1,21 +1,42 @@
 ﻿
 Console.WriteLine("This program will simulate a road");
 // Console.ReadLine();
-var car = new Car();
-car.SetId(1);
-var width = 1;
-var mystring = "string";
-var myArray = new string[] { "one", "two" };
-var road = new Road(width, 1, car, myArray);
+var explorer = new Car();
+explorer.SetId(1);
+explorer.Speed = 2;
 
-System.Console.WriteLine(myArray[1]);
+var civic = new Car(explorer);
 
 
-var carTuple = (id: 1, icon: Car.CarIcon.Ambulance, speed: 2);
+civic.Speed = 5;
+civic.SetId(2);
+var road = new Road(5, 15);
+road.AddCar(explorer, 0, 0);
+road.AddCar(civic, 3, 5);
 
-var other = carTuple.Item1;
-// var (id, _, _) = carTuple;
+while(true)
+{
+  Console.Clear();
+  System.Console.WriteLine(road.GetAsSring());
+  Thread.Sleep(500);
+  road.ProcessTick();
+}
 
-// System.Console.WriteLine(carTuple);
+
+// System.Console.WriteLine(myArray[1]);
+
+
+// var carTuple = (id: 1, icon: Car.CarIcon.Ambulance, speed: 2);
+
+// var other = carTuple.Item1;
+// // var (id, _, _) = carTuple;
+
+// // System.Console.WriteLine(carTuple);
+
+
+
+// var grid = road.GetRoadGrid();
+
+// grid[2][2] = -100;
 
 
