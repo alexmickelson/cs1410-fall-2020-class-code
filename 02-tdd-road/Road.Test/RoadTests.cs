@@ -16,7 +16,7 @@ public class RoadTests
 |  |  |
 |  |  |
 ";
-    Assert.AreEqual(expectedRoadString, road.GetAsSring());
+    Assert.AreEqual(expectedRoadString, road.GetAsString());
     // Debug.Assert(expectedRoadString == road.GetAsSring());
   }
 
@@ -28,14 +28,14 @@ public class RoadTests
 |  |  |  |
 |  |  |  |
 ";
-    Assert.AreEqual(expectedRoadString, road.GetAsSring());
+    Assert.AreEqual(expectedRoadString, road.GetAsString());
   }
 
   [Test]
   public void CanPutCarOnRoad()
   {
     var car = new Car();
-    car.SetId(0);
+    car.Id = 0;
     // car.Icon = "🚗";
     car.Icon = Car.CarIcon.RedCar;
     car.Speed = 1;
@@ -46,13 +46,13 @@ public class RoadTests
 |🚗|  |
 |  |  |
 ";
-    Assert.AreEqual(expectedRoadString, road.GetAsSring());
+    Assert.AreEqual(expectedRoadString, road.GetAsString());
   }
   [Test]
   public void CanPutCarOnRoadInADifferentSpot()
   {
     var car = new Car();
-    car.SetId(0);
+    car.Id = 0;
     // car.Icon = "🚗";
     car.Icon = Car.CarIcon.RedCar;
     car.Speed = 1;
@@ -63,14 +63,14 @@ public class RoadTests
 |  |🚗|
 |  |  |
 ";
-    Assert.AreEqual(expectedRoadString, road.GetAsSring());
+    Assert.AreEqual(expectedRoadString, road.GetAsString());
   }
 
   [Test]
   public void CarsMoveEachTick()
   {
     var car = new Car();
-    car.SetId(1);
+    car.Id = 1;
     car.Icon = Car.CarIcon.RedCar;
     car.Speed = 1;
     var road = new Road(1, 2);
@@ -82,14 +82,14 @@ public class RoadTests
 |  |
 |🚗|
 ";
-    Assert.AreEqual(expectedRoadString, road.GetAsSring());
+    Assert.AreEqual(expectedRoadString, road.GetAsString());
   }
 
   [Test]
   public void CorrectCarSpeed()
   {
     var car = new Car();
-    car.SetId(1);
+    car.Id = 1;
     car.Icon = Car.CarIcon.RedCar;
     car.Speed = 2;
     var road = new Road(1, 3);
@@ -102,18 +102,18 @@ public class RoadTests
 |  |
 |🚗|
 ";
-    Assert.AreEqual(expectedRoadString, road.GetAsSring());
+    Assert.AreEqual(expectedRoadString, road.GetAsString());
   }
-  
+
   [Test]
   public void TicksWorkWithComplexRoads()
   {
     var explorer = new Car();
-    explorer.SetId(1);
+    explorer.Id = 1;
     explorer.Icon = Car.CarIcon.RedCar;
     explorer.Speed = 1;
     var mustang = new Car();
-    mustang.SetId(2);
+    mustang.Id = 2;
     mustang.Icon = Car.CarIcon.BlueCar;
     mustang.Speed = 100;
     var road = new Road(2, 3);
@@ -127,7 +127,16 @@ public class RoadTests
 |🚗|  |
 |  |  |
 ";
+    road.Width = 5;
 
-    Assert.AreEqual(expectedRoadString, road.GetAsSring());
+    Assert.AreEqual(expectedRoadString, road.GetAsString());
+  }
+
+  [Test]
+  public void TestSetOnly()
+  {
+    var road = new Road(2, 2);
+    // var length = road.Length;
+    road.Length = 5;
   }
 }

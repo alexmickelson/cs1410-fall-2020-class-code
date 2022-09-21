@@ -2,22 +2,22 @@
 Console.WriteLine("This program will simulate a road");
 // Console.ReadLine();
 var explorer = new Car();
-explorer.SetId(1);
+explorer.Id = 1;
 explorer.Speed = 2;
 
 var civic = new Car(explorer);
 
 
 civic.Speed = 5;
-civic.SetId(2);
+civic.Id = 2;
 var road = new Road(5, 15);
 road.AddCar(explorer, 0, 0);
 road.AddCar(civic, 3, 5);
 
-while(true)
+while (true)
 {
   Console.Clear();
-  System.Console.WriteLine(road.GetAsSring());
+  System.Console.WriteLine(road.GetAsString());
   Thread.Sleep(500);
   road.ProcessTick();
 }
@@ -35,7 +35,7 @@ while(true)
 
 
 
-// var grid = road.GetRoadGrid();
+// var grid = road.GetRoadGrId = );
 
 // grid[2][2] = -100;
 
