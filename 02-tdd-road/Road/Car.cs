@@ -2,15 +2,24 @@
 
 public class Car
 {
-  public enum CarIcon
+  // public enum CarIcon
+  // {
+  //   BlueCar,
+  //   RedCar,
+  //   Firetruck,
+  //   Ambulance,
+  //   RedTruck,
+  // }
+  public static class CarIcon
   {
-    BlueCar,
-    RedCar,
-    Firetruck,
-    Ambulance,
-    RedTruck,
+    public static readonly string BlueCar = "🚙";
+    public static readonly string RedCar = "🚗";
+    public static readonly string Firetruck = "🚒";
+    public static readonly string Ambulance = "🚑";
+    public static readonly string RedTruck = "🛻";
   }
-  public CarIcon Icon; //🚙 🚗 🚒 🚑 🛻 🚚
+
+  public string Icon; //🚙 🚗 🚒 🚑 🛻 🚚
   // public int Speed; // Tiles per second
   private double _speed;
   public int Speed

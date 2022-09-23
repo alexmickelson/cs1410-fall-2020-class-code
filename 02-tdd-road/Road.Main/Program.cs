@@ -10,6 +10,7 @@ var civic = new Car(explorer);
 
 civic.Speed = 5;
 civic.Id = 2;
+civic.Icon = Car.CarIcon.BlueCar;
 var road = new Road(5, 15);
 road.AddCar(explorer, 0, 0);
 road.AddCar(civic, 3, 5);
@@ -22,6 +23,11 @@ while (true)
   road.ProcessTick();
 }
 
+// var emptyGrid = Road.initializeEmtpyGrid(2, 2);
+
+// var road1 = new Road(1, 1);
+// var road2 = new Road(1, 1);
+// var summedRoad = Road.AddTwoRoads(road1, road2);
 
 // System.Console.WriteLine(myArray[1]);
 

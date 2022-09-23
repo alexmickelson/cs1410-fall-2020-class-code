@@ -1,13 +1,22 @@
 using System.Collections.Generic;
+
 public class Road
 {
   public List<Car> cars;
   private int[][] RoadGrid;
+
   public Road(int width, int length)
   {
     cars = new List<Car>();
     RoadGrid = initializeEmtpyGrid(width, length);
   }
+
+  // public static int CheckIfRunning(Road otherRoad)
+  // {
+  //   otherRoad.RoadGrid = new int[][] { };
+  //   return 1;
+  // }
+
   public int[][] GetRoadGrid()
   {
     var duplicateGrid = initializeEmtpyGrid(Width, getMyLength());
@@ -21,7 +30,7 @@ public class Road
     return duplicateGrid;
   }
 
-  private int[][] initializeEmtpyGrid(int width, int length)
+  public static int[][] initializeEmtpyGrid(int width, int length)
   {
     var grid = new int[length][];
     for (int i = 0; i < length; i++)
@@ -34,6 +43,12 @@ public class Road
       grid[i] = row;
     }
     return grid;
+  }
+
+  //doesn't do much
+  public static Road AddTwoRoads(Road road1, Road road2)
+  {
+    return new Road(1, 1);
   }
 
   public Road(int width, int length, Car car, string[] mystring) : this(width, length)
@@ -68,6 +83,7 @@ public class Road
       return RoadGrid[0].Length;
     }
   }
+
   public int Length
   {
     set
@@ -98,7 +114,7 @@ public class Road
   //   get { return randomNumbers[1]; }
   // }
   // public int[] RandomNumbers { get; set; }
-  
+
   public int GetArea()
   {
     return getMyLength() * Width;
@@ -123,11 +139,11 @@ public class Road
         {
           var car = getCar(carId);
 
-          var emojiArray = new string[] {
-            "🚙", "🚗", "🚒", "🚑", "🛻"
-          };
-          var carIndex = (int)car.Icon;
-          rowOutput += $"{emojiArray[carIndex]}|";
+          // var emojiArray = new string[] {
+          //   "🚙", "🚗", "🚒", "🚑", "🛻"
+          // };
+          // var carIndex = car.Icon;
+          rowOutput += $"{car.Icon}|";
         }
       }
       rowOutput += "\n";
