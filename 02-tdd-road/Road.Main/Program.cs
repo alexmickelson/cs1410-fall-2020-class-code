@@ -15,13 +15,25 @@ var road = new Road(5, 15);
 road.AddCar(explorer, 0, 0);
 road.AddCar(civic, 3, 5);
 
-while (true)
-{
-  Console.Clear();
-  System.Console.WriteLine(road.GetAsString());
-  Thread.Sleep(500);
-  road.ProcessTick();
-}
+var ticks = DateTime.Now.Ticks;
+Console.WriteLine(ticks);
+
+var randomNumberlessThan5 = DateTime.Now.Ticks % 1_000_000;
+System.Console.WriteLine(DateTime.Now.Ticks % 5);
+
+// while (true)
+// {
+//   Console.Clear();
+//   System.Console.WriteLine(road.GetAsString());
+//   Thread.Sleep(500);
+//   road.ProcessTick();
+// }
+
+// var othercar = new Car() { Vin = 12345 };
+
+// var random = new Random();
+// var randomNumberlessThan5 = random.Next(5);
+
 
 // var emptyGrid = Road.initializeEmtpyGrid(2, 2);
 

@@ -27,7 +27,9 @@ public class Car
     get { return (int)_speed; }
     set { _speed = value; }
   }
-  
+
+  public int Vin { get; init; }
+
   public Car()
   { }
 
@@ -42,14 +44,17 @@ public class Car
 
   //These are the same:
   // public int MyProperty { get; set; }
-  
-  // private int myVar;
-  // public int MyProperty
-  // {
-  //   get { return myVar; }
-  //   set { myVar = value; }
-  // }
-  
+
+  private int myVar;
+  public int MyProperty
+  {
+    get { return myVar; }
+    set
+    {
+      myVar = value;
+    }
+  }
+
 
 
   private int _id;
