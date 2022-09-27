@@ -21,13 +21,14 @@ Console.WriteLine(ticks);
 var randomNumberlessThan5 = DateTime.Now.Ticks % 1_000_000;
 System.Console.WriteLine(DateTime.Now.Ticks % 5);
 
-// while (true)
-// {
-//   Console.Clear();
-//   System.Console.WriteLine(road.GetAsString());
-//   Thread.Sleep(500);
-//   road.ProcessTick();
-// }
+while (true)
+{
+  Console.Clear();
+  System.Console.WriteLine(road.GetAsString());
+  road.ProcessTick();
+  var userinput = Console.ReadLine();
+  // Thread.Sleep(500);
+}
 
 // var othercar = new Car() { Vin = 12345 };
 
