@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30114.105
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeckManager", "DeckManager\DeckManager.csproj", "{6829EF92-D932-4423-B0BA-12377EA37334}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeckManager.Main", "DeckManager.Main\DeckManager.Main.csproj", "{7897F660-1DA9-4C5B-91CB-8DF6C88A4313}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeckManager.Test", "DeckManager.Test\DeckManager.Test.csproj", "{DF82C9A3-B4C2-4BF7-AE57-2EABF90DF8EE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6829EF92-D932-4423-B0BA-12377EA37334}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6829EF92-D932-4423-B0BA-12377EA37334}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6829EF92-D932-4423-B0BA-12377EA37334}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6829EF92-D932-4423-B0BA-12377EA37334}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7897F660-1DA9-4C5B-91CB-8DF6C88A4313}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7897F660-1DA9-4C5B-91CB-8DF6C88A4313}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7897F660-1DA9-4C5B-91CB-8DF6C88A4313}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7897F660-1DA9-4C5B-91CB-8DF6C88A4313}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DF82C9A3-B4C2-4BF7-AE57-2EABF90DF8EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF82C9A3-B4C2-4BF7-AE57-2EABF90DF8EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF82C9A3-B4C2-4BF7-AE57-2EABF90DF8EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF82C9A3-B4C2-4BF7-AE57-2EABF90DF8EE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
