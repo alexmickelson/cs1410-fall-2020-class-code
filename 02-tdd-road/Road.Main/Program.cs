@@ -26,8 +26,8 @@ while (true)
   Console.Clear();
   System.Console.WriteLine(road.GetAsString());
   road.ProcessTick();
-  var userinput = Console.ReadLine();
-  // Thread.Sleep(500);
+  // var userinput = Console.ReadLine();
+  Thread.Sleep(500);
 }
 
 // var othercar = new Car() { Vin = 12345 };

@@ -2,12 +2,10 @@ using System.Collections.Generic;
 
 public class Road
 {
-  public List<Car> cars;
-  private int[][] RoadGrid;
+  private Car[][] RoadGrid;
 
   public Road(int width, int length)
   {
-    cars = new List<Car>();
     RoadGrid = initializeEmtpyGrid(width, length);
   }
 
@@ -17,7 +15,7 @@ public class Road
   //   return 1;
   // }
 
-  public int[][] GetRoadGrid()
+  public Car[][] GetRoadGrid()
   {
     var duplicateGrid = initializeEmtpyGrid(Width, getMyLength());
     for (int i = 0; i < RoadGrid.Length; i++)
@@ -30,16 +28,12 @@ public class Road
     return duplicateGrid;
   }
 
-  public static int[][] initializeEmtpyGrid(int width, int length)
+  public static Car[][] initializeEmtpyGrid(int width, int length)
   {
-    var grid = new int[length][];
+    var grid = new Car[length][];
     for (int i = 0; i < length; i++)
     {
-      var row = new int[width];
-      for (int j = 0; j < row.Length; j++)
-      {
-        row[j] = -1;
-      }
+      var row = new Car[width];
       grid[i] = row;
     }
     return grid;
@@ -55,7 +49,6 @@ public class Road
   {
     mystring[1] = "hello";
     car.Id = 2;
-    cars.Add(car);
     width = 2;
   }
 
@@ -108,13 +101,6 @@ public class Road
     return RoadGrid.Length;
   }
 
-  // private int[] randomNumbers = {1, 2, 3, 4};
-  // public int RandomNumber
-  // {
-  //   get { return randomNumbers[1]; }
-  // }
-  // public int[] RandomNumbers { get; set; }
-
   public int GetArea()
   {
     return getMyLength() * Width;
@@ -122,29 +108,14 @@ public class Road
 
   public string GetAsString()
   {
-    var oneSpace = "  |";
     var output = @"
 ";
     foreach (var carRow in RoadGrid)
     {
       var rowOutput = "|";
-
-      foreach (var carId in carRow)
+      foreach (var car in carRow)
       {
-        if (carId == -1)
-        {
-          rowOutput += oneSpace;
-        }
-        else
-        {
-          var car = getCar(carId);
-
-          // var emojiArray = new string[] {
-          //   "🚙", "🚗", "🚒", "🚑", "🛻"
-          // };
-          // var carIndex = car.Icon;
-          rowOutput += $"{car.Icon}|";
-        }
+        rowOutput += $"{car?.Icon ?? "  "}|";
       }
       rowOutput += "\n";
       output += rowOutput;
@@ -152,7 +123,7 @@ public class Road
     return output;
   }
 
-  public (Car, int[]) AddCar(Car car, int x, int y)
+  public void AddCar(Car car, int x, int y)
   {
     if (x >= Width)
     {
@@ -162,21 +133,18 @@ public class Road
     {
       throw new Exception($"Cannot add car: row {y} is larger than or equal to {Width}");
     }
-    cars.Add(car);
-    var carRow = RoadGrid[y];
-    carRow[x] = car.Id;
-    return (car, carRow);
+    RoadGrid[y][x] = car;
   }
 
-  private Car getCar(int carId)
-  {
-    foreach (var car in cars)
-    {
-      if (car.Id == carId)
-        return car;
-    }
-    throw new Exception($"no car found with id {carId}");
-  }
+  // private Car getCar(int carId)
+  // {
+  //   foreach (var car in cars)
+  //   {
+  //     if (car.Id == carId)
+  //       return car;
+  //   }
+  //   throw new Exception($"no car found with id {carId}");
+  // }
 
   public void ProcessTick()
   {
@@ -185,16 +153,15 @@ public class Road
     {
       for (int col = 0; col < RoadGrid[row].Length; col++)
       {
-        var carId = RoadGrid[row][col];
-        if (carId != -1)
+        var car = RoadGrid[row][col];
+        if (car != null)
         {
-          var car = getCar(carId);
           var carSpeed = car.Speed;
           var nextRow = carSpeed + row;
 
           if (nextRow < nextRoadGrid.Length)
           {
-            nextRoadGrid[nextRow][col] = carId;
+            nextRoadGrid[nextRow][col] = car;
           }
         }
       }

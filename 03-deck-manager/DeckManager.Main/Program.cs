@@ -26,7 +26,6 @@ System.Console.WriteLine($"your attack is {mySelectedCard!.Attack.ToString()}");
 // Card otherCard = FindCardByName(mylist, "duck") ?? throw new Exception("card not found");
 
 
-
 // Card? mycard = null;
 // Card? mycard2 = null;
 
