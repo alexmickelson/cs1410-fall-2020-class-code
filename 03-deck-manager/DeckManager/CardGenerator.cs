@@ -1,5 +1,10 @@
 public class CardGenerator
 {
+  public Card[] GenerateDeck(int size)
+  {
+    var newDeck = new Card[size];
+    for (var i = 0; i < size; i+=;)
+  }
   public static readonly string[] Titles = new string[] {
     "Youthful Knight",
     "Yavimaya Enchantress",

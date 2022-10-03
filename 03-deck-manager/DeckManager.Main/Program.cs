@@ -5,7 +5,7 @@ Console.WriteLine("Hello, World!");
 var mylist = new List<Card>() { 
   new Card() {
     Name="duck",
-    Description="Has a beak",
+    Description="Has a beak\n and flippers",
     Attack=10,
     Defense=5
   },

@@ -11,17 +11,22 @@ public class Card
   public string GetAsString()
   {
     var cardWidth = 40;
-    var output = "";
+    var output = "\r\n";
     for (int i = 0; i < cardWidth; i++)
     {
       output += "-";
     }
-    output += "\n";
+    output += "\r\n";
 
-    output += $"        Title: {Name}\n";
-    output += $"  Description: \n{Description}\n";
-    output += $"       Attack: {Attack}\n";
-    output += $"      Defense: {Defense}\n";
+    output += $"|       Title: {Name}                    |\r\n";
+    output += $"| Description: {Description.Split("\n")[0]}              |\r\n";
+    output += $"|             {Description.Split("\n")[1]}            |\r\n";
+    output += $"|      Attack: {Attack}                      |\r\n";
+    output += $"|     Defense: {Defense}                       |\r\n";
+    for (int i = 0; i < cardWidth; i++)
+    {
+      output += "-";
+    }
     return output;
   }
 }
