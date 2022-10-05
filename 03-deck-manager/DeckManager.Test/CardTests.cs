@@ -6,20 +6,16 @@ public class CardTests
   [Test]
   public void TestCardString()
   {
-    var duckCard = new Card()
+    var duckCard = new Card(1)
     {
       Name = "duck",
       Description = "Has a beak\n and flippers",
-      Attack = 10,
-      Defense = 5
     };
     var expectedString = @"
 ----------------------------------------
 |       Title: duck                    |
 | Description: Has a beak              |
 |              and flippers            |
-|      Attack: 10                      |
-|     Defense: 5                       |
 ----------------------------------------";
     Assert.AreEqual(expectedString, duckCard.GetAsString());
   }

@@ -1,13 +1,19 @@
 public class Card
 {
-  public string Name {get; init;}
-  public string Description { get; init;}
+  public string Name { get; init; }
+  public string Description { get; init; }
 
-  public int Attack { get; init;}
-  public int Defense { get; init;}
-  
+  public int Cost { get; }
+  protected string lowerPartOfCard { get; set; } = "";
 
-  //other methods
+  public Card(int cost)
+  {
+    if (cost < 0)
+      throw new Exception("cost cannot be negative");
+    Cost = cost;
+  }
+
+
   public string GetAsString()
   {
     var cardWidth = 40;
@@ -21,12 +27,12 @@ public class Card
     output += $"|       Title: {Name}                    |\r\n";
     output += $"| Description: {Description.Split("\n")[0]}              |\r\n";
     output += $"|             {Description.Split("\n")[1]}            |\r\n";
-    output += $"|      Attack: {Attack}                      |\r\n";
-    output += $"|     Defense: {Defense}                       |\r\n";
+    output += lowerPartOfCard;
     for (int i = 0; i < cardWidth; i++)
     {
       output += "-";
     }
     return output;
   }
+
 }

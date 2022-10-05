@@ -1,6 +1,6 @@
 public class CardGenerator
 {
-  public Card[] GenerateDeck(int size)
+  public void GenerateDeck(int size)
   {
     var newDeck = new Card[size];
     for (var i = 0; i < size; i++)
@@ -8,7 +8,6 @@ public class CardGenerator
 
     }
   }
-  public static readonly string[] Titles = new string[] {
   public static readonly string[] MoneyTitles = new string[] {
     "Ocean",
     "Mountain",
