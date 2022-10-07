@@ -1,10 +1,15 @@
 public class CardGenerator
 {
-  public void GenerateDeck(int size)
+  public List<Card> GenerateDeck(int size)
   {
     var newDeck = new Card[size];
-    for (var i = 0; i < size; i++)
+    var numberOfCreatureCards = DateTime.Now.Ticks % size;
+    var numberOfMoneyCards = size - numberOfCreatureCards;
+    for (var i = 0; i < numberOfCreatureCards; i++)
     {
+      newDeck[i] = new CreatureCard();
+      var random = DateTime.Now.Ticks % numberOfCreatureCards;
+
 
     }
   }

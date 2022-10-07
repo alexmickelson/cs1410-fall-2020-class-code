@@ -1,12 +1,12 @@
 namespace DeckManager.Test;
 
-public class CardTests
+public class CardTests : Object
 {
 
   [Test]
   public void TestCardString()
   {
-    var duckCard = new Card(1)
+    var duckCard = new CreatureCard(10, 5)
     {
       Name = "duck",
       Description = "Has a beak\n and flippers",
@@ -16,7 +16,9 @@ public class CardTests
 |       Title: duck                    |
 | Description: Has a beak              |
 |              and flippers            |
+|      Attack: 10                      |
+|     Defense: 5                       |
 ----------------------------------------";
-    Assert.AreEqual(expectedString, duckCard.GetAsString());
+    Assert.AreEqual(expectedString, duckCard.ToString());
   }
 }

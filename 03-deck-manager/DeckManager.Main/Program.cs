@@ -13,7 +13,7 @@ var mylist = new List<Card>() {
   }
 };
 var firstCard = mylist[0];
-System.Console.WriteLine(firstCard.GetAsString());
+System.Console.WriteLine($"{firstCard}");
 
 if(firstCard is CreatureCard)
 {

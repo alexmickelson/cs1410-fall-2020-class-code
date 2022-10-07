@@ -1,10 +1,9 @@
-public class Card
+public abstract class Card
 {
   public string Name { get; init; }
   public string Description { get; init; }
 
   public int Cost { get; }
-  protected string lowerPartOfCard { get; set; } = "";
 
   public Card(int cost)
   {
@@ -13,8 +12,7 @@ public class Card
     Cost = cost;
   }
 
-
-  public string GetAsString()
+  public override string ToString()
   {
     var cardWidth = 40;
     var output = "\r\n";
@@ -27,7 +25,6 @@ public class Card
     output += $"|       Title: {Name}                    |\r\n";
     output += $"| Description: {Description.Split("\n")[0]}              |\r\n";
     output += $"|             {Description.Split("\n")[1]}            |\r\n";
-    output += lowerPartOfCard;
     for (int i = 0; i < cardWidth; i++)
     {
       output += "-";
