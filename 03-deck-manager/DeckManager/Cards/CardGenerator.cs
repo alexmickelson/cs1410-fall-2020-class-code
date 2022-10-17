@@ -13,6 +13,11 @@ public class CardGenerator
 
     }
   }
+
+  public T GenerateCard<T>() where T : Card, new()
+  {
+    return new T();
+  }
   public static readonly string[] MoneyTitles = new string[] {
     "Ocean",
     "Mountain",
