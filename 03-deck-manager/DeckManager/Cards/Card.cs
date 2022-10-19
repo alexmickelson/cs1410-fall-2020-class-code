@@ -1,5 +1,6 @@
 public abstract record Card
 {
+  public Guid Id { get; } = Guid.NewGuid();
   public string Name { get; init; }
   public string Description { get; init; }
 

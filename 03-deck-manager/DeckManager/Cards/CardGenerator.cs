@@ -1,12 +1,11 @@
 public static class CardGenerator
 {
+  public static Random RandomGenerator { get; } = new Random();
   public static List<Card> GenerateDeck(int size)
   {
-    // var newDeck = new Card[size];
-
     var newDeck = new List<Card>();
 
-    var numberOfCreatureCards = DateTime.Now.Ticks % size;
+    var numberOfCreatureCards = RandomGenerator.Next(size);
     var numberOfMoneyCards = size - numberOfCreatureCards;
     for (var i = 0; i < numberOfCreatureCards; i++)
     {
@@ -22,7 +21,7 @@ public static class CardGenerator
 
   public static T GenerateCard<T>() where T : Card, new()
   {
-    var randomDescriptionIndex = DateTime.Now.Ticks % Descriptions.Length;
+    var randomDescriptionIndex = RandomGenerator.Next(Descriptions.Length);
     var randomDescription = Descriptions[randomDescriptionIndex];
     var baseCard = new T()
     {
@@ -31,13 +30,13 @@ public static class CardGenerator
 
     if (typeof(T) == typeof(CreatureCard))
     {
-      var randomCreatureIndex = DateTime.Now.Ticks % CreatureTitles.Length;
+      var randomCreatureIndex = RandomGenerator.Next(CreatureTitles.Length);
       var randomCreatureTitle = CreatureTitles[randomCreatureIndex];
       return baseCard with { Name = randomCreatureTitle };
     }
     if (typeof(T) == typeof(MoneyCard))
     {
-      var randomNameIndex = DateTime.Now.Ticks % MoneyTitles.Length;
+      var randomNameIndex = RandomGenerator.Next(MoneyTitles.Length);
       var randomMoneyTitle = MoneyTitles[randomNameIndex];
       return baseCard with { Name = randomMoneyTitle };
     }

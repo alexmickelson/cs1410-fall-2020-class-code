@@ -1,0 +1,14 @@
+{
+  "myFavorite": {
+    "Id": "5d2c8d72-1003-4495-b02c-e22903168515",
+    "Name": "Mountain",
+    "Description": "Search your library for a card and put that card into your hand. Then shuffle your library.",
+    "Cost": 0
+  },
+  "otherCard": {
+    "Id": "5d2c8d72-1003-4495-b02c-e22903168515",
+    "Name": "Mountain",
+    "Description": "Search your library for a card and put that card into your hand. Then shuffle your library.",
+    "Cost": 0
+  }
+}
