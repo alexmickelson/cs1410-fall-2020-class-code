@@ -1,7 +1,12 @@
-public class CreatureCard : Card
+public record CreatureCard : Card
 {
-  public int Attack { get; }
-  public int Defense { get; }
+  public int Attack { get; init; }
+  public int Defense { get; init; }
+
+  public CreatureCard() : this(1, 1, 1)
+  {
+    
+  }
 
   public CreatureCard(int attack, int defense) : this(attack, defense, 1)
   {

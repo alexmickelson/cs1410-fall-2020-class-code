@@ -1,22 +1,47 @@
-public class CardGenerator
+public static class CardGenerator
 {
-  public List<Card> GenerateDeck(int size)
+  public static List<Card> GenerateDeck(int size)
   {
-    var newDeck = new Card[size];
+    // var newDeck = new Card[size];
+
+    var newDeck = new List<Card>();
+
     var numberOfCreatureCards = DateTime.Now.Ticks % size;
     var numberOfMoneyCards = size - numberOfCreatureCards;
     for (var i = 0; i < numberOfCreatureCards; i++)
     {
-      newDeck[i] = new CreatureCard();
-      var random = DateTime.Now.Ticks % numberOfCreatureCards;
-
-
+      newDeck.Add(GenerateCard<CreatureCard>());
+      // var random = DateTime.Now.Ticks % numberOfCreatureCards;
     }
+    for (int i = 0; i < numberOfMoneyCards; i++)
+    {
+      newDeck.Add(GenerateCard<MoneyCard>());
+    }
+    return newDeck;
   }
 
-  public T GenerateCard<T>() where T : Card, new()
+  public static T GenerateCard<T>() where T : Card, new()
   {
-    return new T();
+    var randomDescriptionIndex = DateTime.Now.Ticks % Descriptions.Length;
+    var randomDescription = Descriptions[randomDescriptionIndex];
+    var baseCard = new T()
+    {
+      Description = randomDescription
+    };
+
+    if (typeof(T) == typeof(CreatureCard))
+    {
+      var randomCreatureIndex = DateTime.Now.Ticks % CreatureTitles.Length;
+      var randomCreatureTitle = CreatureTitles[randomCreatureIndex];
+      return baseCard with { Name = randomCreatureTitle };
+    }
+    if (typeof(T) == typeof(MoneyCard))
+    {
+      var randomNameIndex = DateTime.Now.Ticks % MoneyTitles.Length;
+      var randomMoneyTitle = MoneyTitles[randomNameIndex];
+      return baseCard with { Name = randomMoneyTitle };
+    }
+    return baseCard;
   }
   public static readonly string[] MoneyTitles = new string[] {
     "Ocean",
@@ -59,7 +84,7 @@ public class CardGenerator
     "Blaze",
     "Abundance",
   };
-  
+
   public static readonly string[] CreatureTitles = new string[] {
     "Youthful Knight",
     "Yavimaya Enchantress",
