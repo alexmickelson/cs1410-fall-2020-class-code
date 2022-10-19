@@ -2,7 +2,6 @@ namespace DeckManager.Test;
 
 public class CardTests : Object
 {
-
   [Test]
   public void TestCardString()
   {
