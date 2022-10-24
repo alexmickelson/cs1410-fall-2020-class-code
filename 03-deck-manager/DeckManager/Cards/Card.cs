@@ -76,6 +76,40 @@ public static class CardExtensions
 {
   public static string HorizontalString(this List<Card> deck)
   {
+    List<List<string>> cardsAsStringArrays = GetCardsAsStringArray(deck);
+
+    int heightOfTallestCard = getHeightOfTallestCard(cardsAsStringArrays);
+
+    var output = "";
+    for (int i = 0; i < heightOfTallestCard; i++)
+    {
+      // output whole row of cards
+      output = getRowAsString(cardsAsStringArrays, output, i);
+
+    }
+    return output;
+  }
+
+  private static string getRowAsString(List<List<string>> cardsAsStringArrays, string output, int i)
+  {
+    foreach (var card in cardsAsStringArrays)
+    {
+      if (card.Count() > i)
+      {
+        output += card[i] + " ";
+      }
+      else
+      {
+        output += "                                         ";
+      }
+    }
+
+    output += "\r\n";
+    return output;
+  }
+
+  private static List<List<string>> GetCardsAsStringArray(List<Card> deck)
+  {
     var cardsAsStringArrays = new List<List<string>>() { };
 
     foreach (var card in deck)
@@ -86,6 +120,11 @@ public static class CardExtensions
       cardsAsStringArrays.Add(cardSplitByNewLine);
     }
 
+    return cardsAsStringArrays;
+  }
+
+  private static int getHeightOfTallestCard(List<List<string>> cardsAsStringArrays)
+  {
     var heightOfTallestCard = 0;
 
     foreach (var card in cardsAsStringArrays)
@@ -96,24 +135,6 @@ public static class CardExtensions
       }
     }
 
-    var output = "";
-    for (int i = 0; i < heightOfTallestCard; i++)
-    {
-      // output whole row of cards
-      foreach (var card in cardsAsStringArrays)
-      {
-        if (card.Count() > i)
-        {
-          output += card[i] + " ";
-        }
-        else {
-          output += "                                         ";
-        }
-      }
-
-      output += "\r\n";
-
-    }
-    return output;
+    return heightOfTallestCard;
   }
 }
