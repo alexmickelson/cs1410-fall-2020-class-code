@@ -35,37 +35,85 @@ public abstract record Card
     var paddedDescriptionFirstLine = lineBreakDescription.Split("\n")[0].PadRight(rightPad);
     output += $"|{paddedTitle}: {paddedName}|\r\n";
     output += $"|{paddedDescription}: {paddedDescriptionFirstLine}|\r\n";
+
     for (int i = 1; i < lineBreakDescription.Split("\n").Length; i++)
     {
       var paddedDescriptionCurrentLine = lineBreakDescription.Split("\n")[i].PadRight(rightPad);
       output += $"|{paddedEmpty}  {paddedDescriptionCurrentLine}|\r\n";
     }
+
     for (int i = 0; i < cardWidth; i++)
     {
       output += "-";
     }
     return output;
   }
+
   public string SplitDescriptionBy20Characters()
   {
     var words = Description.Split(" ");
-    var lines = new List<string>() { words[0] };
+    var lines = new List<string>() { "" };
     var currentLine = 0;
 
-    var allWordsExceptFirst = words.Skip(1);
-    foreach (var word in allWordsExceptFirst)
+    foreach (var word in words)
     {
       var lineWouldBeTooBig = (lines[currentLine].Length + word.Length) > 20;
       if (lineWouldBeTooBig)
       {
         currentLine += 1;
-        lines.Add(word);
-      } else 
+        lines.Add(word + " ");
+      }
+      else
       {
-        //new stuff
-        lines[lines.Count() - 1] += " " + word ;
+        lines[currentLine] += word + " ";
       }
     }
     return String.Join(Environment.NewLine, lines);
+  }
+}
+
+public static class CardExtensions
+{
+  public static string HorizontalString(this List<Card> deck)
+  {
+    var cardsAsStringArrays = new List<List<string>>() { };
+
+    foreach (var card in deck)
+    {
+      var cardString = card.ToString();
+      var cardSplitByNewLine = cardString.Split("\r\n").ToList();
+
+      cardsAsStringArrays.Add(cardSplitByNewLine);
+    }
+
+    var heightOfTallestCard = 0;
+
+    foreach (var card in cardsAsStringArrays)
+    {
+      if (card.Count() > heightOfTallestCard)
+      {
+        heightOfTallestCard = card.Count();
+      }
+    }
+
+    var output = "";
+    for (int i = 0; i < heightOfTallestCard; i++)
+    {
+      // output whole row of cards
+      foreach (var card in cardsAsStringArrays)
+      {
+        if (card.Count() > i)
+        {
+          output += card[i] + " ";
+        }
+        else {
+          output += "                                         ";
+        }
+      }
+
+      output += "\r\n";
+
+    }
+    return output;
   }
 }

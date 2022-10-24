@@ -10,7 +10,6 @@ public static class CardGenerator
     for (var i = 0; i < numberOfCreatureCards; i++)
     {
       newDeck.Add(GenerateCard<CreatureCard>());
-      // var random = DateTime.Now.Ticks % numberOfCreatureCards;
     }
     for (int i = 0; i < numberOfMoneyCards; i++)
     {

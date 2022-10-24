@@ -5,4 +5,9 @@ public record MoneyCard : Card
   {
     
   }
+  
+  public override string ToString()
+  {
+    return base.ToString();
+  }
 }
