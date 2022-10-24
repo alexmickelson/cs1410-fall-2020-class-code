@@ -38,7 +38,7 @@ public abstract record Card
     for (int i = 1; i < lineBreakDescription.Split("\n").Length; i++)
     {
       var paddedDescriptionCurrentLine = lineBreakDescription.Split("\n")[i].PadRight(rightPad);
-      output += $"|{paddedEmpty} {paddedDescriptionCurrentLine} |\r\n";
+      output += $"|{paddedEmpty}  {paddedDescriptionCurrentLine}|\r\n";
     }
     for (int i = 0; i < cardWidth; i++)
     {
@@ -49,9 +49,11 @@ public abstract record Card
   public string SplitDescriptionBy20Characters()
   {
     var words = Description.Split(" ");
-    var lines = new List<string>() { "" };
+    var lines = new List<string>() { words[0] };
     var currentLine = 0;
-    foreach (var word in words)
+
+    var allWordsExceptFirst = words.Skip(1);
+    foreach (var word in allWordsExceptFirst)
     {
       var lineWouldBeTooBig = (lines[currentLine].Length + word.Length) > 20;
       if (lineWouldBeTooBig)
@@ -60,9 +62,10 @@ public abstract record Card
         lines.Add(word);
       } else 
       {
-        
+        //new stuff
+        lines[lines.Count() - 1] += " " + word ;
       }
     }
-    return String.Join("\r\n", lines);
+    return String.Join(Environment.NewLine, lines);
   }
 }
