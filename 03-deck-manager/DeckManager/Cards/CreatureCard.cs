@@ -21,7 +21,7 @@ public record CreatureCard : Card
   public override string ToString()
   {
     string lowerPartOfCard = "";
-    lowerPartOfCard += $"|      Attack: {Attack}                       |\r\n";
+    lowerPartOfCard += $"|      Attack: {Attack}                      |\r\n";
     lowerPartOfCard += $"|     Defense: {Defense}                       |\r\n";
 
     var baseString = base.ToString();
