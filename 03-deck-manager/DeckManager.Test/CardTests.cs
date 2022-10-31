@@ -19,6 +19,7 @@ public class CardTests : Object
 |      Attack: 10                      |
 |     Defense: 5                       |
 ----------------------------------------";
+
     Assert.AreEqual(expectedString, duckCard.ToString());
   }
 }
