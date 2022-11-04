@@ -1,15 +1,30 @@
 public static class CardGenerator
 {
-  public static Random RandomGenerator { get; } = new Random();
-  public static List<Card> GenerateDeck(int size)
+  public static Random RandomGenerator { get; private set; } = new Random();
+  public static List<Card> GenerateDeck(int size, bool shouldSeedRandom = false)
   {
+    if (shouldSeedRandom)
+      RandomGenerator = new Random(1);
+
     var newDeck = new List<Card>();
 
     var numberOfCreatureCards = RandomGenerator.Next(size);
     var numberOfMoneyCards = size - numberOfCreatureCards;
     for (var i = 0; i < numberOfCreatureCards; i++)
     {
-      newDeck.Add(GenerateCard<CreatureCard>());
+      var randomDescriptionIndex = RandomGenerator.Next(Descriptions.Length);
+      var randomDescription = Descriptions[randomDescriptionIndex];
+
+      var randomCreatureIndex = RandomGenerator.Next(CreatureTitles.Length);
+      var randomCreatureTitle = CreatureTitles[randomCreatureIndex];
+
+      newDeck.Add(new CreatureCard() with
+      {
+        Name = randomCreatureTitle,
+        Description = randomDescription,
+        Attack = RandomGenerator.Next(20),
+        Defense = RandomGenerator.Next(20)
+      });
     }
     for (int i = 0; i < numberOfMoneyCards; i++)
     {
@@ -27,12 +42,6 @@ public static class CardGenerator
       Description = randomDescription
     };
 
-    if (typeof(T) == typeof(CreatureCard))
-    {
-      var randomCreatureIndex = RandomGenerator.Next(CreatureTitles.Length);
-      var randomCreatureTitle = CreatureTitles[randomCreatureIndex];
-      return baseCard with { Name = randomCreatureTitle };
-    }
     if (typeof(T) == typeof(MoneyCard))
     {
       var randomNameIndex = RandomGenerator.Next(MoneyTitles.Length);
