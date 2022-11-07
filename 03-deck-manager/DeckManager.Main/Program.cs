@@ -3,7 +3,8 @@ using System.Text.Json.Serialization;
 
 
 
-messingWithQueryExpressions();
+// messingWithQueryExpressions();
+addCreaturesTogether();
 
 static void messingWithQueryExpressions()
 {
@@ -46,3 +47,16 @@ static void deckDictionary()
 // }
 
 // Would you ever want to eat an exception?
+
+static void addCreaturesTogether()
+{
+  // CardGenerator.GenerateDeck(0, true);
+  // var creature1 = CardGenerator.GenerateCreature();
+  // var creature2 = CardGenerator.GenerateCreature();
+
+  // var sumCreature = creature1 + creature2;
+
+  // System.Console.WriteLine(creature1);
+  // System.Console.WriteLine(creature2);
+  // System.Console.WriteLine(sumCreature);
+}

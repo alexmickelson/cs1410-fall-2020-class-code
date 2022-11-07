@@ -5,6 +5,17 @@ using System.Collections;
 // <>
 public class MyList<T> : IEnumerable<T>
 {
+  public T this[int index]
+  {
+    get {
+      var enumerator = GetEnumerator();
+      for (int i = 0; i < index; i++)
+      {
+        enumerator.MoveNext();
+      }
+      return (T) enumerator.Current;
+    }
+  }
   public MyLinkedListNode<T>? Head { get; set; }
   public int Count
   {

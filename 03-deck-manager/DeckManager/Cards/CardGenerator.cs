@@ -12,25 +12,31 @@ public static class CardGenerator
     var numberOfMoneyCards = size - numberOfCreatureCards;
     for (var i = 0; i < numberOfCreatureCards; i++)
     {
-      var randomDescriptionIndex = RandomGenerator.Next(Descriptions.Length);
-      var randomDescription = Descriptions[randomDescriptionIndex];
-
-      var randomCreatureIndex = RandomGenerator.Next(CreatureTitles.Length);
-      var randomCreatureTitle = CreatureTitles[randomCreatureIndex];
-
-      newDeck.Add(new CreatureCard() with
-      {
-        Name = randomCreatureTitle,
-        Description = randomDescription,
-        Attack = RandomGenerator.Next(20),
-        Defense = RandomGenerator.Next(20)
-      });
+      CreatureCard newCreature = GenerateCreature();
+      newDeck.Add(newCreature);
     }
     for (int i = 0; i < numberOfMoneyCards; i++)
     {
       newDeck.Add(GenerateCard<MoneyCard>());
     }
     return newDeck;
+  }
+
+  public static CreatureCard GenerateCreature()
+  {
+    var randomDescriptionIndex = RandomGenerator.Next(Descriptions.Length);
+    var randomDescription = Descriptions[randomDescriptionIndex];
+
+    var randomCreatureIndex = RandomGenerator.Next(CreatureTitles.Length);
+    var randomCreatureTitle = CreatureTitles[randomCreatureIndex];
+    var newCreature = new CreatureCard() with
+    {
+      Name = randomCreatureTitle,
+      Description = randomDescription,
+      Attack = RandomGenerator.Next(20),
+      Defense = RandomGenerator.Next(20)
+    };
+    return newCreature;
   }
 
   public static T GenerateCard<T>() where T : Card, new()

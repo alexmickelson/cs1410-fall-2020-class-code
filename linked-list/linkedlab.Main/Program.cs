@@ -1,7 +1,7 @@
 ﻿var firstData = new DataValue(0, "one");//location 1 created
 var secondData = new DataValue(0, "one"); // location 2 created
-var node1 = new MyLinkedListNode(firstData);
-var node2 = new MyLinkedListNode(secondData);
+var node1 = new MyLinkedListNode<DataValue>(firstData);
+var node2 = new MyLinkedListNode<DataValue>(secondData);
 
 var originalFirstRecord = firstData; // location 1 assigned
 firstData = firstData with { Message = "changed" }; // location 3 created

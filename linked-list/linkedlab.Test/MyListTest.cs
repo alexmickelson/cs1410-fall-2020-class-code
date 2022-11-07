@@ -79,4 +79,20 @@ public class MyListTest
       };
     CollectionAssert.AreEqual(testList, expectedArray);
   }
+
+  [Test]
+  public void CanUseIndexOperator()
+  {
+    var testList = new MyList<DataValue>(
+      new DataValue[]
+      {
+        new DataValue(1, "one"),
+        new DataValue(2, "two"),
+        new DataValue(3, "three"),
+      }
+    );
+
+    Assert.AreEqual(new DataValue(2, "two"), testList[1]);
+
+  }
 }
