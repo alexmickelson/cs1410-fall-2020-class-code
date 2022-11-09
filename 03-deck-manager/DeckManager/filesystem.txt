@@ -1,0 +1,2 @@
+write to /tmp/project/files/message.txt contents "hello"
+delete file /tmp/project/files/message.txt
