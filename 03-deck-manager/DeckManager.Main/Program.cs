@@ -4,7 +4,8 @@ using System.Text.Json.Serialization;
 
 
 // messingWithQueryExpressions();
-addCreaturesTogether();
+// addCreaturesTogether();
+testingFiles();
 
 static void messingWithQueryExpressions()
 {
@@ -59,4 +60,15 @@ static void addCreaturesTogether()
   // System.Console.WriteLine(creature1);
   // System.Console.WriteLine(creature2);
   // System.Console.WriteLine(sumCreature);
+}
+
+static void testingFiles()
+{
+  var deck = CardGenerator.GenerateDeck(10, true);
+  DeckService.WriteDeckToFile("testDeckStorage.txt", deck);
+  var deck2 = DeckService.ReadDeckFromFile("testDeckStorage.txt");
+  
+  deck2
+    .ToList()
+    .ForEach(System.Console.WriteLine);
 }
