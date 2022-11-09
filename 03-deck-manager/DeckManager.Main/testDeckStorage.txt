@@ -1,15 +1,4 @@
-Id,Name,Description,Cost
-5c50ea84-e5fc-4332-bd6d-a313d8ba49f2,Starlight Invoker,"When Venerable Monk enters the battlefield, you gain 2 life.",1
-3b73ccab-9ccd-4b77-9142-c801dc6aee83,The Hive,"Other Zombie creatures get +1/+1.
+Attack,Defense,Id,Name,Description,Cost
+15,13,bf3d3e13-c6dd-4bb6-a1eb-c6764a5aa722,Starlight Invoker,"When Venerable Monk enters the battlefield, you gain 2 life.",1
+18,2,a2862777-9881-4554-ba14-234a4a1c5dea,The Hive,"Other Zombie creatures get +1/+1.
 {1}{B}, {T}: Return target Zombie card from your graveyard to your hand.",1
-d77d0b0d-6b06-4f86-ad35-7c2ee1b63fba,Ocean,"Flying (This creature can't be blocked except by creatures with flying or reach.)
-Nightmare's power and toughness are each equal to the number of Swamps you control.",0
-6de3eb28-9044-4287-b3c3-ed5af7bf69d2,Ocean,Target opponent sacrifices a creature.,0
-f0ba719a-3f56-49d9-a450-fe96db850ce1,Field,Artifacts and lands enter the battlefield tapped.,0
-ac6cdd22-bd2a-4b0d-8ec3-8d9e8011e84a,Ocean,"Flying (This creature can't be blocked except by creatures with flying or reach.)
-{R}: Furnace Whelp gets +1/+0 until end of turn.",0
-22ac580d-6410-4122-a480-51ff11cf555c,Field,"Flying (This creature can't be blocked except by creatures with flying or reach.)
-Whenever a creature dealt damage by Sengir Vampire this turn dies, put a +1/+1 counter on Sengir Vampire.",0
-3a3e3a73-4afd-4f3b-9879-d9912359e9ca,Field,First strike (This creature deals combat damage before creatures without first strike.),0
-d5b7cc6b-5fae-43e0-9ebb-250ab7545e35,Ocean,"Whenever a player casts a black spell, you may gain 1 life.",0
-54b13960-eba4-4d03-bee7-93003df4c180,Field,Return all creatures to their owners' hands.,0
