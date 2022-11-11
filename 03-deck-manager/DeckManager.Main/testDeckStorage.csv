@@ -1,0 +1,15 @@
+TypeOfCard,Cost,Name,Description,Attack,Defense
+Creature,1,Starlight Invoker,"When Venerable Monk enters the battlefield, you gain 2 life.",15,13
+Creature,1,The Hive,"Other Zombie creatures get +1/+1.
+{1}{B}, {T}: Return target Zombie card from your graveyard to your hand.",18,2
+Money,0,Ocean,"Flying (This creature can't be blocked except by creatures with flying or reach.)
+Nightmare's power and toughness are each equal to the number of Swamps you control.",-1,-1
+Money,0,Ocean,Target opponent sacrifices a creature.,-1,-1
+Money,0,Field,Artifacts and lands enter the battlefield tapped.,-1,-1
+Money,0,Ocean,"Flying (This creature can't be blocked except by creatures with flying or reach.)
+{R}: Furnace Whelp gets +1/+0 until end of turn.",-1,-1
+Money,0,Field,"Flying (This creature can't be blocked except by creatures with flying or reach.)
+Whenever a creature dealt damage by Sengir Vampire this turn dies, put a +1/+1 counter on Sengir Vampire.",-1,-1
+Money,0,Field,First strike (This creature deals combat damage before creatures without first strike.),-1,-1
+Money,0,Ocean,"Whenever a player casts a black spell, you may gain 1 life.",-1,-1
+Money,0,Field,Return all creatures to their owners' hands.,-1,-1

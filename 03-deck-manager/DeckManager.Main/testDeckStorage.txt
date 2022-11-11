@@ -1,4 +1,0 @@
-Attack,Defense,Id,Name,Description,Cost
-15,13,bf3d3e13-c6dd-4bb6-a1eb-c6764a5aa722,Starlight Invoker,"When Venerable Monk enters the battlefield, you gain 2 life.",1
-18,2,a2862777-9881-4554-ba14-234a4a1c5dea,The Hive,"Other Zombie creatures get +1/+1.
-{1}{B}, {T}: Return target Zombie card from your graveyard to your hand.",1

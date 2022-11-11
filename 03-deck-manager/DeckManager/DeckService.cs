@@ -5,24 +5,39 @@ public class DeckService
 {
   public static void WriteDeckToFile(string path, IEnumerable<Card> deck)
   {
-    IEnumerable<CreatureCard> creatures = deck
-      .Where(c => c.GetType() == typeof(CreatureCard))
-      .Select(c => c as CreatureCard)!;
+
+    var deckOfStorageCars = deck.Select(c => {
+      if (c.GetType() == typeof(CreatureCard))
+        return new CardStorage(c as CreatureCard);
+
+      if (c.GetType() == typeof(MoneyCard))
+        return new CardStorage(c as MoneyCard);
+
+      return null;
+    });
 
     using (var writer = new StreamWriter(path))
     using (var csv = new CsvWriter(writer, CultureInfo.InvariantCulture))
     {
-      csv.WriteRecords(creatures);
+      csv.WriteRecords(deckOfStorageCars);
     }
   }
 
-  public static IEnumerable<CreatureCard> ReadDeckFromFile(string path)
+  public static IEnumerable<Card> ReadDeckFromFile(string path)
   {
     using (var reader = new StreamReader(path))
     using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
     {
-      var deck = csv.GetRecords<CreatureCard>();
-      return deck.ToArray();
+      var deck = csv.GetRecords<CardStorage>();
+      return deck.Select(c =>
+      {
+        if (c.TypeOfCard == CardStorage.CardType.Creature)
+          return c.GetAsCreature();
+        if (c.TypeOfCard == CardStorage.CardType.Money)
+          return c.GetAsMoney();
+
+        throw new Exception("card type not valid: " + c.TypeOfCard);
+      }).ToArray();
     }
   }
 }

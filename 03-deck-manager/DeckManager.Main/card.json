@@ -1,0 +1,90 @@
+[
+  {
+    "TypeOfCard": 0,
+    "Cost": 1,
+    "Name": "Starlight Invoker",
+    "Description": "When Venerable Monk enters the battlefield, you gain 2 life.",
+    "Attack": 15,
+    "Defense": 13,
+    "nestedCard": {
+      "TypeOfCard": 0,
+      "Cost": 1,
+      "Name": "Starlight Invoker",
+      "Description": "When Venerable Monk enters the battlefield, you gain 2 life.",
+      "Attack": 15,
+      "Defense": 13
+    }
+  },
+  {
+    "TypeOfCard": 0,
+    "Cost": 1,
+    "Name": "The Hive",
+    "Description": "Other Zombie creatures get \u002B1/\u002B1.\n{1}{B}, {T}: Return target Zombie card from your graveyard to your hand.",
+    "Attack": 18,
+    "Defense": 2
+  },
+  {
+    "TypeOfCard": 1,
+    "Cost": 0,
+    "Name": "Ocean",
+    "Description": "Flying (This creature can\u0027t be blocked except by creatures with flying or reach.)\nNightmare\u0027s power and toughness are each equal to the number of Swamps you control.",
+    "Attack": -1,
+    "Defense": -1
+  },
+  {
+    "TypeOfCard": 1,
+    "Cost": 0,
+    "Name": "Ocean",
+    "Description": "Target opponent sacrifices a creature.",
+    "Attack": -1,
+    "Defense": -1
+  },
+  {
+    "TypeOfCard": 1,
+    "Cost": 0,
+    "Name": "Field",
+    "Description": "Artifacts and lands enter the battlefield tapped.",
+    "Attack": -1,
+    "Defense": -1
+  },
+  {
+    "TypeOfCard": 1,
+    "Cost": 0,
+    "Name": "Ocean",
+    "Description": "Flying (This creature can\u0027t be blocked except by creatures with flying or reach.)\n{R}: Furnace Whelp gets \u002B1/\u002B0 until end of turn.",
+    "Attack": -1,
+    "Defense": -1
+  },
+  {
+    "TypeOfCard": 1,
+    "Cost": 0,
+    "Name": "Field",
+    "Description": "Flying (This creature can\u0027t be blocked except by creatures with flying or reach.)\nWhenever a creature dealt damage by Sengir Vampire this turn dies, put a \u002B1/\u002B1 counter on Sengir Vampire.",
+    "Attack": -1,
+    "Defense": -1
+  },
+  {
+    "TypeOfCard": 1,
+    "Cost": 0,
+    "Name": "Field",
+    "Description": "First strike (This creature deals combat damage before creatures without first strike.)",
+    "Attack": -1,
+    "Defense": -1
+  },
+  {
+    "TypeOfCard": 1,
+    "Cost": 0,
+    "Name": "Ocean",
+    "Description": "Whenever a player casts a black spell, you may gain 1 life.",
+    "Attack": -1,
+    "Defense": -1
+  },
+  {
+    "TypeOfCard": 1,
+    "Cost": 0,
+    "Name": "Field",
+    "Description": "Return all creatures to their owners\u0027 hands.",
+    "Attack": -1,
+    "Defense": -1
+  }
+]

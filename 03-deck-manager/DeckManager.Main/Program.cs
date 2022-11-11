@@ -5,7 +5,8 @@ using System.Text.Json.Serialization;
 
 // messingWithQueryExpressions();
 // addCreaturesTogether();
-testingFiles();
+// testingFiles();
+testingJSON();
 
 static void messingWithQueryExpressions()
 {
@@ -65,10 +66,36 @@ static void addCreaturesTogether()
 static void testingFiles()
 {
   var deck = CardGenerator.GenerateDeck(10, true);
-  DeckService.WriteDeckToFile("testDeckStorage.txt", deck);
-  var deck2 = DeckService.ReadDeckFromFile("testDeckStorage.txt");
-  
+  DeckService.WriteDeckToFile("testDeckStorage.csv", deck);
+  var deck2 = DeckService.ReadDeckFromFile("testDeckStorage.csv");
+
   deck2
     .ToList()
     .ForEach(System.Console.WriteLine);
+}
+
+void testingJSON()
+{
+  var deck = CardGenerator.GenerateDeck(10, true);
+
+  deck
+    .Select(c => JsonSerializer.Serialize(c))
+    .ToList().ForEach(System.Console.WriteLine);
+
+  var deckstring = JsonSerializer.Serialize(deck);
+  var deckDeserialized = JsonSerializer.Deserialize<Card>(deckstring);
+
+  // System.Console.WriteLine(
+  //   JsonSerializer.Serialize(deck
+  //   .Select(c =>
+  //   {
+  //     if (c.GetType() == typeof(CreatureCard))
+  //       return new CardStorage(c as CreatureCard);
+
+  //     if (c.GetType() == typeof(MoneyCard))
+  //       return new CardStorage(c as MoneyCard);
+
+  //     return null;
+  //   })
+  //   ));
 }
