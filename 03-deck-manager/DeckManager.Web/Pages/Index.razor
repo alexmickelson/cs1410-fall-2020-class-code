@@ -1,0 +1,44 @@
+﻿@page "/"
+
+<PageTitle>Index</PageTitle>
+
+<h1>Hello, world!</h1>
+
+Welcome to your changed app.
+
+<SurveyPrompt Title=@UserInputTitle />
+
+<div>
+  Player 1: @player1.Name
+</div>
+
+<input @bind="UserInputTitle" />
+
+<div>
+  <button @onclick="generateDeck">GenerateDeck</button>
+</div>
+
+<hr />
+@foreach (var card in deck)
+{
+  <div>@card.Name</div>
+  <div>@card.Description</div>
+  <hr />
+}
+
+@code
+{
+  private IEnumerable<Card> deck { get; set; } = new Card[] { };
+  private Player player1 { get; set; }
+  private string UserInputTitle { get; set; } = "How is Blazor working for you?";
+
+  public Index()
+  {
+    player1 = new Player("Bob", new List<Card>() { });
+  }
+
+  private void generateDeck()
+  {
+    deck = CardGenerator.GenerateDeck(30);
+  }
+}
