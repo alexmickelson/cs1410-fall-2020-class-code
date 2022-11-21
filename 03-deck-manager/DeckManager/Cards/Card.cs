@@ -1,10 +1,17 @@
-public abstract record Card
+public record Card
 {
+  public enum CardType
+  {
+    Creature,
+    Money
+  }
   public Guid Id { get; } = Guid.NewGuid();
   public string Name { get; init; }
   public string Description { get; init; }
-
   public int Cost { get; }
+  public CardType TypeOfCard { get; init; }
+  public int Attack { get; init; }
+  public int Defense { get; init; }
 
   public Card(int cost)
   {
@@ -47,6 +54,23 @@ public abstract record Card
       output += "-";
     }
     return output;
+  }
+
+
+  private string getAttackAndDefenseSTring()
+  {
+    if (TypeOfCard == CardType.Creature)
+    {
+      string lowerPartOfCard = "";
+      lowerPartOfCard += $"|      Attack: {Attack}                      |\r\n";
+      lowerPartOfCard += $"|     Defense: {Defense}                       |\r\n";
+
+      return lowerPartOfCard;
+    }
+    else
+    {
+      return "";
+    }
   }
 
   public string SplitDescriptionBy20Characters()

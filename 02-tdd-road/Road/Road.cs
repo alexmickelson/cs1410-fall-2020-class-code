@@ -148,24 +148,29 @@ public class Road
 
   public void ProcessTick()
   {
-    var nextRoadGrid = initializeEmtpyGrid(Width, getMyLength());
-    for (int row = 0; row < RoadGrid.Length; row++)
+    lock (this)
     {
-      for (int col = 0; col < RoadGrid[row].Length; col++)
-      {
-        var car = RoadGrid[row][col];
-        if (car != null)
-        {
-          var carSpeed = car.Speed;
-          var nextRow = carSpeed + row;
 
-          if (nextRow < nextRoadGrid.Length)
+      var nextRoadGrid = initializeEmtpyGrid(Width, getMyLength());
+      for (int row = 0; row < RoadGrid.Length; row++)
+      {
+        for (int col = 0; col < RoadGrid[row].Length; col++)
+        {
+          var car = RoadGrid[row][col];
+          if (car != null)
           {
-            nextRoadGrid[nextRow][col] = car;
+            Thread.Sleep(500);
+            var carSpeed = car.Speed;
+            var nextRow = carSpeed + row;
+
+            if (nextRow < nextRoadGrid.Length)
+            {
+              nextRoadGrid[nextRow][col] = car;
+            }
           }
         }
       }
+      RoadGrid = nextRoadGrid;
     }
-    RoadGrid = nextRoadGrid;
   }
 }

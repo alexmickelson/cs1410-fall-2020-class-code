@@ -1,9 +1,12 @@
 ﻿
+using System.Diagnostics;
+
 Console.WriteLine("This program will simulate a road");
 // Console.ReadLine();
 var explorer = new Car();
 explorer.Id = 1;
 explorer.Speed = 2;
+explorer.Icon = Car.CarIcon.Ambulance;
 
 var civic = new Car(explorer);
 
@@ -13,7 +16,7 @@ civic.Id = 2;
 civic.Icon = Car.CarIcon.BlueCar;
 var road = new Road(5, 15);
 road.AddCar(explorer, 0, 0);
-road.AddCar(civic, 3, 5);
+road.AddCar(civic, 3, 0);
 
 var ticks = DateTime.Now.Ticks;
 Console.WriteLine(ticks);
@@ -24,9 +27,15 @@ System.Console.WriteLine(DateTime.Now.Ticks % 5);
 while (true)
 {
   Console.Clear();
+
   System.Console.WriteLine(road.GetAsString());
-  road.ProcessTick();
-  // var userinput = Console.ReadLine();
+
+  new Thread(
+    () => road.ProcessTick()
+  ).Start();
+
+  var directThreadsCount = Process.GetCurrentProcess().Threads.Count;
+  System.Console.WriteLine(directThreadsCount);
   Thread.Sleep(500);
 }
 
