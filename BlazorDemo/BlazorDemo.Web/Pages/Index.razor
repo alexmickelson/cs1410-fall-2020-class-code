@@ -1,0 +1,26 @@
+﻿@page "/"
+
+<PageTitle>Index</PageTitle>
+
+
+<table class="table">
+@foreach(var row in grid.Grid)
+{
+  <tr>
+  @foreach(var cell in row)
+  {
+    <td>
+    @cell
+    </td> 
+  }
+  </tr>
+}
+</table>
+@code
+{
+  public GameGrid grid {get; set;}
+  public Index()
+  {
+    grid = new GameGrid();
+  }
+}

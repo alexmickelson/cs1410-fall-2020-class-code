@@ -37,7 +37,7 @@ Welcome to your changed app.
     player1 = new Player("Bob", new List<Card>() { });
   }
 
-  private void generateDeck()
+  private async Task generateDeck()
   {
     deck = CardGenerator.GenerateDeck(30);
   }
