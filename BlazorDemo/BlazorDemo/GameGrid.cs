@@ -7,6 +7,7 @@ public class GameGrid
     new List<int>() { 0, 0, 0},
     new List<int>() { 0, 0, 0},
   };
+
   public int X { get; set; } = 1;
   public int Y { get; set; } = 0;
 
@@ -20,16 +21,16 @@ public class GameGrid
   }
   public void MoveDirection(Direction input)
   {
+    if (input == Direction.Up) Y--;
+    if (input == Direction.Down) Y++;
+    if (input == Direction.Left) X--;
+    if (input == Direction.Right) X++;
 
-    if (input == Direction.Up)
-    {
-      Y--;
-    }
-    if (input == Direction.Down)
-    {
-      Y++;
-    }
+    reDrawGrid();
+  }
 
+  private void reDrawGrid()
+  {
     for (var i = 0; i < Grid[0].Count(); i++)
     {
       for (int j = 0; j < Grid.Count(); j++)

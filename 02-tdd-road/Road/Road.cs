@@ -4,6 +4,8 @@ public class Road
 {
   private Car[][] RoadGrid;
 
+  public event Action TickCompleted;
+
   public Road(int width, int length)
   {
     RoadGrid = initializeEmtpyGrid(width, length);
@@ -159,7 +161,6 @@ public class Road
           var car = RoadGrid[row][col];
           if (car != null)
           {
-            Thread.Sleep(500);
             var carSpeed = car.Speed;
             var nextRow = carSpeed + row;
 
@@ -171,6 +172,8 @@ public class Road
         }
       }
       RoadGrid = nextRoadGrid;
+
+      TickCompleted?.Invoke();
     }
   }
 }

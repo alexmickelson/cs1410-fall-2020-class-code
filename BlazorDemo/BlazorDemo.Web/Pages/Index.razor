@@ -2,6 +2,7 @@
 
 <PageTitle>Index</PageTitle>
 
+<button @onclick="() => grid.MoveDirection(GameGrid.Direction.Up)">Down</button>
 
 <table class="table">
 @foreach(var row in grid.Grid)

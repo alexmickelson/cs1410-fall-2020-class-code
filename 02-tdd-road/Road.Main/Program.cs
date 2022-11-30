@@ -10,7 +10,6 @@ explorer.Icon = Car.CarIcon.Ambulance;
 
 var civic = new Car(explorer);
 
-
 civic.Speed = 5;
 civic.Id = 2;
 civic.Icon = Car.CarIcon.BlueCar;
@@ -24,19 +23,33 @@ Console.WriteLine(ticks);
 var randomNumberlessThan5 = DateTime.Now.Ticks % 1_000_000;
 System.Console.WriteLine(DateTime.Now.Ticks % 5);
 
+var writeRoad = () => System.Console.WriteLine(road.GetAsString());
+var otherListener = () => System.Console.WriteLine("other listener");
+
+writeRoad();
+
+road.TickCompleted += writeRoad;
+road.TickCompleted += otherListener;
+
+
+var i = 0;
 while (true)
 {
   Console.Clear();
 
-  System.Console.WriteLine(road.GetAsString());
+  road.ProcessTick();
 
-  new Thread(
-    () => road.ProcessTick()
-  ).Start();
-
-  var directThreadsCount = Process.GetCurrentProcess().Threads.Count;
-  System.Console.WriteLine(directThreadsCount);
   Thread.Sleep(500);
+  if(i == 5)
+  {
+    Cleanup();
+  }
+  i++;
+}
+
+void Cleanup()
+{
+  road.TickCompleted -= otherListener;
 }
 
 // var othercar = new Car() { Vin = 12345 };
