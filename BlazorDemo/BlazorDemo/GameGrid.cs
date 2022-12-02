@@ -2,10 +2,10 @@ public class GameGrid
 {
   public List<List<int>> Grid { get; set; } = new List<List<int>>()
   {
-    new List<int>() { 0, 1, 0},
-    new List<int>() { 0, 0, 0},
-    new List<int>() { 0, 0, 0},
-    new List<int>() { 0, 0, 0},
+    new List<int>() { 0, 1, 0 },
+    new List<int>() { 0, 0, 0 },
+    new List<int>() { 0, 0, 0 },
+    new List<int>() { 0, 0, 0 },
   };
 
   public int X { get; set; } = 1;
@@ -31,9 +31,9 @@ public class GameGrid
 
   private void reDrawGrid()
   {
-    for (var i = 0; i < Grid[0].Count(); i++)
+    for (var i = 0; i < Grid[0].Count() - 1; i++)
     {
-      for (int j = 0; j < Grid.Count(); j++)
+      for (int j = 0; j < Grid.Count() - 1; j++)
       {
         if (i == X && j == Y)
         {
