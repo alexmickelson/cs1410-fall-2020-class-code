@@ -10,6 +10,11 @@ public class GameGrid
 
   public int X { get; set; } = 1;
   public int Y { get; set; } = 0;
+  public GameGrid()
+  {
+    reDrawGrid();
+  }
+
 
 
   public enum Direction
@@ -25,8 +30,9 @@ public class GameGrid
     if (input == Direction.Down) Y++;
     if (input == Direction.Left) X--;
     if (input == Direction.Right) X++;
-
+    System.Console.WriteLine($"X: {X}, Y: {Y}");
     reDrawGrid();
+    System.Console.WriteLine(GridString());
   }
 
   private void reDrawGrid()
@@ -37,13 +43,27 @@ public class GameGrid
       {
         if (i == X && j == Y)
         {
-          Grid[i][j] = 1;
+          Grid[j][i] = 1;
         }
         else
         {
-          Grid[i][j] = 0;
+          Grid[j][i] = 0;
         }
       }
     }
+  }
+
+  public  string GridString()
+  {
+    var output = "";
+    foreach (var row in Grid)
+    {
+      foreach (var cell in row)
+      {
+        output += cell;
+      }
+      output += Environment.NewLine;
+    }
+    return output;
   }
 }

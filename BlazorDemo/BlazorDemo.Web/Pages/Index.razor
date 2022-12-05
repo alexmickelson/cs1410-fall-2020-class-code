@@ -2,15 +2,18 @@
 
 <PageTitle>Index</PageTitle>
 
-<button @onclick="() => grid.MoveDirection(GameGrid.Direction.Up)">Down</button>
+<button @onclick="MoveDown">Down</button>
+<input
+value="@UserInput" @oninput="@((ChangeEventArgs e) => UserInput = e.Value.ToString())"
+ />
 
-<table class="table">
+<table class="table border text-center">
 @foreach(var row in grid.Grid)
 {
-  <tr>
+  <tr class="border">
   @foreach(var cell in row)
   {
-    <td>
+    <td class="border">
     @cell
     </td> 
   }
@@ -19,9 +22,23 @@
 </table>
 @code
 {
+  private string _userInput = "";
+  public string UserInput 
+  {
+    get {return _userInput;}
+    set {
+      Console.WriteLine(value);
+      _userInput = value;
+    }
+  }
   public GameGrid grid {get; set;}
   public Index()
   {
     grid = new GameGrid();
+  }
+  public void MoveDown()
+  {
+    grid.MoveDirection(GameGrid.Direction.Down);
+    this.StateHasChanged();
   }
 }

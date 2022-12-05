@@ -17,5 +17,6 @@ public class Tests
     Assert.AreEqual(1, gameGrid.X);
     Assert.AreEqual(2, gameGrid.Y);
     Assert.AreEqual(1, gameGrid.Grid[1][2]);
+    Assert.AreEqual(0, gameGrid.Grid[2][1]);
   }
 }
