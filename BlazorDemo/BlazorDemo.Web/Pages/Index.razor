@@ -2,7 +2,15 @@
 
 <PageTitle>Index</PageTitle>
 
-<button @onclick="() => grid.MoveDirection(GameGrid.Direction.Up)">Down</button>
+<button @onclick="() => grid.MoveDirection(GameGrid.Direction.Down)">Down</button>
+<button @onclick="() => grid.MoveDirection(GameGrid.Direction.Up)">Up</button>
+<button @onclick="() => grid.MoveDirection(GameGrid.Direction.Left)">Left</button>
+<button @onclick="() => grid.MoveDirection(GameGrid.Direction.Right)">Right</button>
+
+<input 
+  value="@UserInput"
+  @oninput="@((ChangeEventArgs e) => UserInput = e.Value.ToString())"
+ />
 
 <table class="table">
 @foreach(var row in grid.Grid)
@@ -10,7 +18,7 @@
   <tr>
   @foreach(var cell in row)
   {
-    <td>
+    <td class="border">
     @cell
     </td> 
   }
@@ -19,6 +27,31 @@
 </table>
 @code
 {
+  private string userInput = "";
+  public string UserInput 
+  {
+    get => userInput;
+    set {
+      Console.WriteLine(value);
+      if(value.Length > 0)
+      {
+        userInput = value.Last().ToString();
+        
+        var direction = userInput.ToLower() switch 
+        {
+          "w" => GameGrid.Direction.Up,
+          "a" => GameGrid.Direction.Left,
+          "s" => GameGrid.Direction.Down,
+          "d" => GameGrid.Direction.Right,
+        };
+        grid.MoveDirection(direction);
+      }
+      else
+      {
+        userInput = "";
+      }
+    }
+  }
   public GameGrid grid {get; set;}
   public Index()
   {
