@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Recurs", "Recurs\Recurs.csproj", "{96CA654C-69CE-40DE-B327-C97D324C31E4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Recurs.Main", "Recurs.Main\Recurs.Main.csproj", "{340BCF24-5144-42C8-B4F5-7ADA8C1A4969}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Recurs.Test", "Recurs.Test\Recurs.Test.csproj", "{4E25B303-7272-44FA-A7F3-1931EC96E467}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{96CA654C-69CE-40DE-B327-C97D324C31E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96CA654C-69CE-40DE-B327-C97D324C31E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96CA654C-69CE-40DE-B327-C97D324C31E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96CA654C-69CE-40DE-B327-C97D324C31E4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{340BCF24-5144-42C8-B4F5-7ADA8C1A4969}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{340BCF24-5144-42C8-B4F5-7ADA8C1A4969}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{340BCF24-5144-42C8-B4F5-7ADA8C1A4969}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{340BCF24-5144-42C8-B4F5-7ADA8C1A4969}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4E25B303-7272-44FA-A7F3-1931EC96E467}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4E25B303-7272-44FA-A7F3-1931EC96E467}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4E25B303-7272-44FA-A7F3-1931EC96E467}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4E25B303-7272-44FA-A7F3-1931EC96E467}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
